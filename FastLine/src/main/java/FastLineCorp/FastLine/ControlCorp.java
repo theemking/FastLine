@@ -3,13 +3,17 @@ package FastLineCorp.FastLine;
  * @author Name: Dony Pierre
  * @Assignment: FastLineCorp Project
  * @Date: June 10, 2023
+ * @Class: ControlCorp
  * @Description: This page will be the main GUI control page. All other pages will be linked to this page
- * Repository tokens: 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
+ * 
  */
 
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+
+import java.util.Arrays;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
@@ -76,6 +80,7 @@ public class ControlCorp extends Application{
   public void start(Stage primaryStage) {
   //Setting up top navigation bar
    bPane.setTop(topNavigation());
+   bPane.setBottom(bottomSection());
 	  
   primaryStage.setTitle("FastLine Corp");
  // primaryStage.setScen()
@@ -86,7 +91,7 @@ public class ControlCorp extends Application{
   }
   /**
    * topNavigation
-   * This code below with display the a navigation bar that shows the buttons and names for different pages.
+   * This section below with display the a navigation bar that shows the buttons and names for different pages.
    * 
    * @return
    * 
@@ -95,12 +100,73 @@ public class ControlCorp extends Application{
 	  VBox vboxt = new VBox();
 	  vboxt.setAlignment(Pos.CENTER);
 	  vboxt.setMinHeight(90);
-	  vboxt.setStyle("-fx-background-color: lightgreen");
+	  vboxt.setStyle("-fx-background-color: HONEYDEW");
 	  Text headertex = new Text("FASTLINE CORP");
+	  headertex.setFill(Color.GREEN);
+	  headertex.setStrokeWidth(2);
+	  headertex.setFont(Font.font("Times New Roman", FontWeight.BOLD,
+			  FontPosture.REGULAR, 30));
+	  vboxt.getChildren().addAll(headertex);
+	  vboxt.getChildren().add(getNavButtons());
 	  
 	  return vboxt;
   }
-  
-	
+  /**
+   * getNavButtons
+   * This section below with display the a navigation buttons that users can click on to go to different pages.
+   * 
+   */
+  private HBox getNavButtons() {
+	  HBox hboxnv = new HBox();
+	  hboxnv.setStyle("-fx-background-color: HONEYDEW");
+	  hboxnv.setSpacing(20);;
+	  hboxnv.setPadding(new Insets(10,10,10,10));
+	  hboxnv.setPrefSize(100, 60);
+	  hboxnv.setAlignment(Pos.CENTER);
+	  //Adding color, height and fonts to all buttons.
+	  Arrays.asList(btonhomepage,btonclients,btonflights,btonpilot,btonshipment,
+			  btonairplane,btonmodel,btoncontact).stream().map((btonColor)->{
+				  btonColor.setStyle(controlstyle.button);
+				  return btonColor;				  
+			  }).map((btonColor)->{
+				  btonColor.setMinHeight(30);
+				return btonColor;
+			  }).forEachOrdered((btonColor)->{
+				  btonColor.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
+			  });
+	  //Setting up exit button differently because of different functions
+	  btonexit.setStyle(controlstyle.redbton);
+	  btonexit.setMinHeight(30);
+	  btonexit.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
+	  hboxnv.getChildren().addAll(btonhomepage,btonclients,btonflights,btonpilot,btonshipment,
+			  btonairplane,btonmodel,btoncontact, btonexit);
+	  
+	  return hboxnv;
+	  
+  }
+  /**
+   * bottomSection
+   * This section contain the following information at the bottom of the page
+   * Copyright © 2020 · All Rights Reserved
+   * Program name
+   * Author name
+   */
+  private VBox bottomSection() {
+	  VBox vboxb = new VBox();
+	  vboxb.setMinSize(1000, 150);
+	  vboxb.setStyle("-fx-background-color: black");
+	  Text toptext = new Text("Copyright © 2020 · All Rights Reserved: " + "FastLine Corp");
+	  toptext.setFill(Color.WHITE);
+	  Text btomtext = new Text("Designed by: Dony Pierre");
+	  toptext.setFont(Font.font("Times New Roman", FontWeight.NORMAL, FontPosture.REGULAR, 15));
+	  btomtext.setFont(Font.font("Times New Roman", FontWeight.NORMAL,FontPosture.REGULAR, 15));
+	  btomtext.setFont(Font.font("Times New Roman", FontWeight.NORMAL,FontPosture.REGULAR, 15));
+	  btomtext.setFill(Color.WHITE);
+	  vboxb.setAlignment(Pos.CENTER);
+	  vboxb.setMargin(toptext, new Insets(0,0,20,0));
+	  vboxb.getChildren().addAll(toptext, btomtext);	  
+	  return vboxb;
+  }
+
 }
  
