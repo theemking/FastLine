@@ -4,6 +4,7 @@ package FastLineCorp.FastLine;
  * @Assignment: FastLineCorp Project
  * @Date: June 10, 2023
  * @Description: This page will be the main GUI control page. All other pages will be linked to this page
+ * Repository tokens: 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
  */
 
 import javafx.stage.Stage;
@@ -94,7 +95,8 @@ public class ControlCorp extends Application{
 	  VBox vboxt = new VBox();
 	  vboxt.setAlignment(Pos.CENTER);
 	  vboxt.setMinHeight(90);
-	  
+	  vboxt.setStyle("-fx-background-color: lightgreen");
+	  Text headertex = new Text("FASTLINE CORP");
 	  
 	  return vboxt;
   }
