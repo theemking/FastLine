@@ -9,6 +9,14 @@ package FastLineCorp.FastLine;
  * 
  */
 public class Styles {
-	String button ="-fx-background-color: HONEYDEW; -fx-border-color: none; -fx-text-fill: DARKSLATEGRAY";
-	String redbton="-fx-background-color: HONEYDEW; -fx-border-color: none; -fx-text-fill: DARKSLATEGRAY";
+	String button ="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
+	String redbton="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
+	String btonbox ="-fx-background-color: MINTCREAM; -fx-border-color: none";
+	String hpcenterBton="-fx-background-color: MINTCREAM; -fx-border-color: gray; -fx-text-fill: DARKSLATEGREY";
+	
+	//HONEYDEW
+	//MEDIUMAQUAMARINE
+	//MINTCREAM
+	//CADETBLUE
+	
 }

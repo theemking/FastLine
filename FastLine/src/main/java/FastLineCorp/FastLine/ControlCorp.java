@@ -67,7 +67,7 @@ public class ControlCorp extends Application{
 	Styles controlstyle = new Styles();
 	
 	//Classes
-	//HomePage homepage = new HomePage(bPane);
+	HomePage homepage = new HomePage(bPane);
 	
 	/**
 	 * This section will be the main page GUI. There will be buttons on this page to access the other pages
@@ -80,7 +80,13 @@ public class ControlCorp extends Application{
   public void start(Stage primaryStage) {
   //Setting up top navigation bar
    bPane.setTop(topNavigation());
+   bPane.setCenter(homepage.getPane());
    bPane.setBottom(bottomSection());
+   
+   //Buttons that users will be able to click on to navigate to that other pages
+   btonhomepage.setOnAction(e ->{
+	   bPane.setCenter(homepage.getPane());
+   });
 	  
   primaryStage.setTitle("FastLine Corp");
  // primaryStage.setScen()
@@ -100,7 +106,8 @@ public class ControlCorp extends Application{
 	  VBox vboxt = new VBox();
 	  vboxt.setAlignment(Pos.CENTER);
 	  vboxt.setMinHeight(90);
-	  vboxt.setStyle("-fx-background-color: HONEYDEW");
+	  vboxt.setStyle("-fx-background-color: DARKSEAGREEN");
+	  vboxt.setPadding(new Insets(20,0,0,0));
 	  Text headertex = new Text("FASTLINE CORP");
 	  headertex.setFill(Color.GREEN);
 	  headertex.setStrokeWidth(2);
@@ -118,7 +125,7 @@ public class ControlCorp extends Application{
    */
   private HBox getNavButtons() {
 	  HBox hboxnv = new HBox();
-	  hboxnv.setStyle("-fx-background-color: HONEYDEW");
+	  hboxnv.setStyle("-fx-background-color: DARKSEAGREEN");
 	  hboxnv.setSpacing(20);;
 	  hboxnv.setPadding(new Insets(10,10,10,10));
 	  hboxnv.setPrefSize(100, 60);
@@ -154,7 +161,7 @@ public class ControlCorp extends Application{
   private VBox bottomSection() {
 	  VBox vboxb = new VBox();
 	  vboxb.setMinSize(1000, 150);
-	  vboxb.setStyle("-fx-background-color: black");
+	  vboxb.setStyle("-fx-background-color: TEAL");
 	  Text toptext = new Text("Copyright © 2020 · All Rights Reserved: " + "FastLine Corp");
 	  toptext.setFill(Color.WHITE);
 	  Text btomtext = new Text("Designed by: Dony Pierre");
