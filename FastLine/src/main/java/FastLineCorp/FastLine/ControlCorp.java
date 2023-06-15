@@ -142,7 +142,7 @@ public class ControlCorp extends Application{
 				  btonColor.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
 			  });
 	  //Setting up exit button differently because of different functions
-	  btonexit.setStyle(controlstyle.redbton);
+	  btonexit.setStyle(controlstyle.button);
 	  btonexit.setMinHeight(30);
 	  btonexit.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	  hboxnv.getChildren().addAll(btonhomepage,btonclients,btonflights,btonpilot,btonshipment,
@@ -170,7 +170,7 @@ public class ControlCorp extends Application{
 	  btomtext.setFont(Font.font("Times New Roman", FontWeight.NORMAL,FontPosture.REGULAR, 15));
 	  btomtext.setFill(Color.WHITE);
 	  vboxb.setAlignment(Pos.CENTER);
-	  vboxb.setMargin(toptext, new Insets(0,0,20,0));
+	  VBox.setMargin(toptext, new Insets(0,0,20,0));
 	  vboxb.getChildren().addAll(toptext, btomtext);	  
 	  return vboxb;
   }

@@ -1,4 +1,5 @@
 package FastLineCorp.FastLine;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -96,8 +97,9 @@ public class HomePage {
 		btonclients.setMinSize(250, 150);
 		btonshipment.setMinSize(250, 150);
 		vboxclb.getChildren().addAll(citext,btonclients,shiptext,btonshipment);
-/*		btonclients.setOnAction(e ->{bPane.setCenter(clientspage.getPane());
-		});*/
+	
+		btonclients.setOnAction(e ->{bPane.setCenter(clientsp.getPane()); });
+	
 /*
  * btonshipment.setOnAction(e ->{bPane.setCenter(ship.getPane()); });
  */
