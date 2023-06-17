@@ -162,7 +162,7 @@ public class ControlCorp extends Application{
 	  VBox vboxb = new VBox();
 	  vboxb.setMinSize(1000, 150);
 	  vboxb.setStyle("-fx-background-color: TEAL");
-	  Text toptext = new Text("Copyright © 2020 · All Rights Reserved: " + "FastLine Corp");
+	  Text toptext = new Text("Copyright © 2023 · All Rights Reserved: " + "FastLine Corp");
 	  toptext.setFill(Color.WHITE);
 	  Text btomtext = new Text("Designed by: Dony Pierre");
 	  toptext.setFont(Font.font("Times New Roman", FontWeight.NORMAL, FontPosture.REGULAR, 15));

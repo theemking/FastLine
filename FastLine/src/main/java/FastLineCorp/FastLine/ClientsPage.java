@@ -1,7 +1,6 @@
 package FastLineCorp.FastLine;
 
-
-
+//Imports
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.collections.FXCollections;
@@ -31,40 +30,41 @@ import javafx.scene.text.Text;
  * @Description: This page will be the clients page. This page will be accessed once the client button is clicked from the homepage
  * 
  */
+
+//Begin Subclass ClientsPage
 public class ClientsPage {
-	
 	//Declaring textarea
 	static TextArea texReaOne = new TextArea();
 
-	//styles class
+	//styles class 
 	Styles clientstyle =new Styles();
-	
-	//client addtess labels
+        
+	// Client address labels
 	static Label lbName = new Label("Client Name");
-	static Label lbAddress=new Label("Address");
+	static Label lbAddress = new Label("Address");
 	static Label lbCity = new Label("City");
 	static Label lbState = new Label("State");
 	static ComboBox<String> cbState;
 	static Label lbZip = new Label("Zip");
-	//Text field
+
 	static TextField txName;
 	static TextField txAddress;
 	static TextField txCity;
-	static TextField State;
-	static TextField txtZip;	
-	
+	static TextField txState;
+	static TextField txZip;
+
 	//adding border pane to allow access from ControlCorp
-	BorderPane bPane=new BorderPane();
-	
-	//button
-	Button btonView = new Button("View");
-	Button btonAdd = new Button("Add Client");
-	Button btonEdit = new Button("Edit Cilent");
-	Button btonDelete = new Button("Delete Client");
-	Button btonEnter = new Button("Enter");
-	Button btonCancel = new Button("Cancel");
-	Button btonExit = new Button("Exit");
-	
+    BorderPane bPane = new BorderPane();
+    
+  //button
+    Button btonView = new Button("View");
+    Button btonAdd = new Button("Add Client");
+    Button btonEdit = new Button("Edit Client");
+    Button btonDelete = new Button("Delete Client");
+    Button btonEnter = new Button("Enter");
+    Button btonCancel = new Button("Cancel");
+    Button btonExit = new Button("Exit");
+
 	/**
 	 * ControlCorp constructor
 	 * This constructor allows the client page to be access from the control page when the user click the client button
@@ -72,103 +72,108 @@ public class ClientsPage {
 	ClientsPage(BorderPane clientsp){
 		bPane=clientsp;
 	}
-	/**
-	 * getPane()
+
+    /**
+     * getPane()
 	 * This function allow access to clients data from the ControlCorp page
-	 */
-	public VBox getPane() {
-		VBox vclients = new VBox();
-		vclients.getChildren().addAll(clients());
-		return vclients;
-	}
+	 * @return 
+     */
+    public VBox getPane() {
+        VBox vclients = new VBox();
+        vclients.getChildren().addAll(clients());
+        return vclients;
+    }
 	/**
 	 * clients()
 	 * This is the border pane for the client page.
 	 * This bPane will be accessed from the ControlCorp page
 	 * @return
 	 */
-	private BorderPane clients() {
-		BorderPane boxes = new BorderPane();
-		//Setting up the title pane
-		VBox titlebox = new VBox();
-		titlebox.setAlignment(Pos.CENTER);
-		titlebox.setSpacing(10);
-		Text title = new Text("Clients");
-		Text secondTitle = new Text("View Client Information Below");
-		//adding style
-		title.setFill(Color.BLUE);
-		title.setStrokeWidth(2);
-		title.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 25));
-		secondTitle.setFill(Color.RED);
-		secondTitle.setStrokeWidth(2);
-		secondTitle.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 20));
-		titlebox.getChildren().addAll(titlebox,secondTitle);
-		
-		//adding HBox - button
-		HBox hbtonBox =new HBox();
-		hbtonBox.setAlignment(Pos.CENTER);
-		hbtonBox.setPadding(new Insets(20,0,0,0));
-		hbtonBox.setSpacing(20);
-		
-		//adding style buttons
-		Arrays.asList(btonView,btonAdd,btonEdit,btonDelete,btonEnter,btonCancel,btonExit).forEach((bton)->{
-			bton.setStyle(clientstyle.clientBton);
-			bton.setMinHeight(30);
-			bton.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
-		});
-		//Exit button style
-		btonExit.setStyle(clientstyle.redExit);
-		btonExit.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
-		btonExit.setMinHeight(0);
-		
-		//adding buttons to HBox
-		hbtonBox.getChildren().addAll(btonView,btonAdd,btonEdit,btonDelete,btonEnter,btonCancel,btonExit);
-		
-		//adding title box
-		boxes.setTop(title);
-		boxes.setCenter(getSelectView());
-		boxes.setBottom(hbtonBox);
-		
+    private BorderPane clients() {
+        BorderPane boxes = new BorderPane();
+      //Setting up the title pane
+        VBox header = new VBox();
+        header.setAlignment(Pos.CENTER);
+        header.setSpacing(10);
+        Text title = new Text("Clients");
+        Text secondTitle = new Text("View Client Information Below:");
+      //adding style
+        title.setFill(Color.DARKBLUE);
+        title.setStrokeWidth(2);
+        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 25));
+        secondTitle.setFill(Color.BLUE);
+        secondTitle.setStrokeWidth(2);
+        secondTitle.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 20));
+        //add titles to titlebox. 
+        header.getChildren().addAll(title, secondTitle);
+
+      //adding HBox - button
+        HBox hbtonBox = new HBox();
+        hbtonBox.setAlignment(Pos.CENTER);
+        hbtonBox.setPadding(new Insets(20,0,0,0));
+        hbtonBox.setSpacing(20);
+
+      //adding style buttons
+        Arrays.asList(btonView, btonAdd, btonEdit, btonDelete, btonEnter,
+                btonCancel).forEach((bton) -> {
+                	bton.setStyle(clientstyle.btonbox);
+                	bton.setMinHeight(30);
+                	bton.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
+                });
+        //Exit button style
+        btonExit.setStyle(clientstyle.redExit);
+        btonExit.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
+        btonExit.setMinHeight(0);
+
+        //add buttons to button HBox
+        hbtonBox.getChildren().addAll(btonView, btonAdd, btonEdit, btonDelete, btonEnter,
+                btonCancel, btonExit);
+
+      //adding title box
+        boxes.setTop(header);
+        boxes.setCenter(getSelectView()); //call a method to show db of clients  
+        boxes.setBottom(hbtonBox);
+
 		//adding actions so that users can click on buttons on this page and get a response
 		btonView.setOnAction(e ->{boxes.setCenter(getLabels());});
 		btonAdd.setOnAction(e ->{boxes.setCenter(addClient());});	
 		btonEdit.setOnAction(e ->{boxes.setCenter(updateClient());});
 		btonDelete.setOnAction(e ->{boxes.setCenter(deleteClient());});
+		//clear whatever actions taken and return to just the viewClient page
 		btonExit.setOnAction(e ->{boxes.setCenter(getSelectView());});
-		
-		return boxes;
-	}
-	/**
-	 * getLabels()
-	 * This function will display the header section and the TextArea for the output.
-	 * @return
-	 */
-	private VBox getLabels() {
-		VBox vboxlb =new VBox();
-		vboxlb.setAlignment(Pos.CENTER);
-		vboxlb.getChildren().addAll(getViewLabel(), getTextAreaOne());
-		return vboxlb;
-	}
-	
-	/**
+
+        return boxes;
+    } 
+ 
+    /**
+     * This is a function used to display the header section and the TextArea section for the result.
+     * @return
+     */
+    private VBox getLabels() {
+    	VBox vboxlb = new VBox();
+    	vboxlb.setAlignment(Pos.CENTER);
+    	vboxlb.getChildren().addAll(getViewLabel(), getTextAreaOne());
+    	return vboxlb;
+    }
+    /**
 	 * getViewLabel()
 	 * This function will show a header section that displays the names of the fields
 	 * @return
-	 */
+     */
 	private HBox getViewLabel() {
 		HBox hboxv = new HBox();
 		hboxv.setAlignment(Pos.CENTER);
-		hboxv.setPadding(new Insets(3,20,3,20));
+		hboxv.setPadding(new Insets(3, 20, 3, 20));
 		hboxv.setSpacing(150);
 		hboxv.setPrefWidth(700);
 		hboxv.setMaxWidth(900);
 		hboxv.setStyle(clientstyle.viewLabel);
-		Label Name = new Label("Client Name");
+		Label name = new Label("Client Name");
 		Label Address = new Label("Address");
 		Label City = new Label("City");
 		Label State = new Label("State");
 		Label Zip = new Label("Zip Code");
-		hboxv.getChildren().addAll(Name,Address,City,State,Zip);
+		hboxv.getChildren().addAll(name, Address, City, State,Zip);
 		return hboxv;
 	}
 	/**
@@ -178,26 +183,18 @@ public class ClientsPage {
 	 * @return
 	 */
 	private ScrollPane getTextAreaOne() {
-		ScrollPane Areabox = new ScrollPane();
-		Areabox.setFitToWidth(true);
-		Areabox.setStyle(clientstyle.clientScroll);
-		//adding gridpane
-		GridPane gPane = new GridPane();
-		gPane.setStyle(clientstyle.clientScroll);
-		gPane.setPadding(new Insets(2,20,2,20));
-		gPane.setAlignment(Pos.TOP_CENTER);
-		gPane.setHgap(110);
-		gPane.setVgap(5);
-		
-//		Label gName = new Label("Name");
-//		Label gAddress = new Label("Address");
-//		Label gCity = new Label("City");
-//		Label gState = new Label("State");
-//		Label gZip = new Label("Zip");
-//		
-//		gPane.getChildren().addAll(gName,gAddress,gCity,gState,gZip);
-		
-		Areabox.setContent(gPane);
+ 		ScrollPane Areabox = new ScrollPane();
+ 		Areabox.setFitToWidth(true);
+ 		Areabox.setStyle(clientstyle.clientScroll); 
+				
+		 GridPane gpane = new GridPane(); 
+		 gpane.setStyle(clientstyle.clientScroll); 
+		 gpane.setPadding(new Insets(2,20,2,20));
+		 gpane.setAlignment(Pos.TOP_CENTER); 
+		 gpane.setHgap(110);
+		 gpane.setVgap(5);
+		 	
+		 Areabox.setContent(gpane);
 		return Areabox;
 	}
 	/**
@@ -206,74 +203,74 @@ public class ClientsPage {
 	 * The information will be pull from the SQL Database
 	 */
 	private VBox getSelectView() {
-		VBox centerSection =new VBox();
-		centerSection.setAlignment(Pos.TOP_CENTER);
-		centerSection.setMinHeight(300);
-		centerSection.setSpacing(5);
-		centerSection.setStyle(clientstyle.bacgroundWHITE);
-		//Adding header
-		Text header = new Text("View Selected Client");
-		//adding direction
-		Text subHeader = new Text("Please select a client, then click SEARCH. \n"
-				+ "You will be able to view all information for the Client you select");
-		//adding combobox for client info
-		HBox select = new HBox();
-		select.setSpacing(5);
-		select.setAlignment(Pos.CENTER);
-		ComboBox clientSelect = new ComboBox(FXCollections.observableArrayList());
-		clientSelect.setVisibleRowCount(5);
-		Button ClSearch = new Button("Search");
-		select.getChildren().addAll(clientSelect, ClSearch);
-		
-		//adding grid information
-		GridPane gPane =new GridPane(); 
-		gPane.setAlignment(Pos.CENTER);
-		gPane.setHgap(11);
-		gPane.setVgap(5);
-	    Label lbName = new Label("Client Name: "); 
-	    gPane.add(lbName, 0, 0);
-	    Label lbType = new Label ("Client Type: "); 
-	    gPane.add(lbType, 0, 1);
-	    Label lbPhone = new Label("Client Phone: "); 
-	    gPane.add(lbPhone, 0, 2);
-	    Label lbAddress = new Label("Address: "); 
-	    gPane.add(lbAddress, 0, 3);
-	    Label lbCity = new Label("City: "); 
-	    gPane.add(lbCity, 0, 4);
-	    Label lbState = new Label("State: "); 
-	    gPane.add(lbState, 0, 5);
-	    Label lbZip = new Label("Zip: "); 
-	    gPane.add(lbZip,  0,  6);		
-		
-	    Text txSelectName = new Text(); 
-	    gPane.add(txSelectName, 1, 0);
-		Text txSelectType = new Text(); 
-		gPane.add(txSelectType, 1, 1);
-		Text txSelectPhone = new Text(); 
-		gPane.add(txSelectPhone, 1, 2);
-		Text txSelectAddress = new Text(); 
-		gPane.add(txSelectAddress, 1, 3);
-		Text txSelectCity = new Text(); 
-		gPane.add(txSelectCity, 1, 4);
-		Text txSelectState = new Text(); 
-		gPane.add(txSelectState, 1, 5);
-		Text txSelectZip = new Text();
-		gPane.add(txSelectZip, 1,  6); 
-
-		   
-		   btonCancel.setOnAction(e->{
-			   clientSelect.valueProperty().set(null); 
-			   txSelectName.setText(""); 
-			   txSelectType.setText("");
-			   txSelectPhone.setText("");
-			   txSelectAddress.setText("");
-			   txSelectCity.setText("");
-			   txSelectState.setText("");
-			   txSelectZip.setText("");
-		   });
-		   
-		centerSection.getChildren().addAll(header,subHeader,select,gPane);
-		return centerSection;
+    VBox centerSection = new VBox();
+    centerSection.setAlignment(Pos.TOP_CENTER);
+    centerSection.setMinHeight(300);
+    centerSection.setSpacing(5);
+    centerSection.setStyle(clientstyle.bacgroundWHITE);
+    
+  //Adding header
+    Text title = new Text("View Selected Client"); 
+  //adding direction
+	Text subHeader = new Text("Please select a client, then click SEARCH. \n"
+			+ "You will be able to view all information for the Client you select");
+	//adding combobox for client info
+    HBox select = new HBox(); 
+    select.setSpacing(5); 
+    select.setAlignment(Pos.CENTER);
+    ComboBox SelectClient = new ComboBox(FXCollections.observableArrayList()); 
+    SelectClient.setVisibleRowCount(5); 
+    Button ClSearch = new Button("Search"); 
+    select.getChildren().addAll(SelectClient, ClSearch); 
+    
+	//adding grid information
+	GridPane gPane =new GridPane(); 
+	gPane.setAlignment(Pos.CENTER);
+	gPane.setHgap(11);
+	gPane.setVgap(5);
+    Label lbName = new Label("Client Name: "); 
+    gPane.add(lbName, 0, 0);
+    Label lbType = new Label ("Client Type: "); 
+    gPane.add(lbType, 0, 1);
+    Label lbPhone = new Label("Client Phone: "); 
+    gPane.add(lbPhone, 0, 2);
+    Label lbAddress = new Label("Address: "); 
+    gPane.add(lbAddress, 0, 3);
+    Label lbCity = new Label("City: "); 
+    gPane.add(lbCity, 0, 4);
+    Label lbState = new Label("State: "); 
+    gPane.add(lbState, 0, 5);
+    Label lbZip = new Label("Zip: "); 
+    gPane.add(lbZip,  0,  6);		
+	
+    Text txSelectName = new Text(); 
+    gPane.add(txSelectName, 1, 0);
+	Text txSelectType = new Text(); 
+	gPane.add(txSelectType, 1, 1);
+	Text txSelectPhone = new Text(); 
+	gPane.add(txSelectPhone, 1, 2);
+	Text txSelectAddress = new Text(); 
+	gPane.add(txSelectAddress, 1, 3);
+	Text txSelectCity = new Text(); 
+	gPane.add(txSelectCity, 1, 4);
+	Text txSelectState = new Text(); 
+	gPane.add(txSelectState, 1, 5);
+	Text txSelectZip = new Text();
+	gPane.add(txSelectZip, 1,  6); 
+   
+	   btonCancel.setOnAction(e->{
+		   SelectClient.valueProperty().set(null); 
+		   txSelectName.setText(""); 
+		   txSelectType.setText("");
+		   txSelectPhone.setText("");
+		   txSelectAddress.setText("");
+		   txSelectCity.setText("");
+		   txSelectState.setText("");
+		   txSelectZip.setText("");
+	   });
+	   centerSection.getChildren().addAll(title, subHeader, select, gPane);
+    
+    return centerSection; 
 	}
 	/**
 	 * AddClient
@@ -371,13 +368,13 @@ public class ClientsPage {
     		String add2 = txtAdd2.getText(); 
     		
     		//client City validation 
-    		String cityValid;
+    		String validCity;
     		head="Client City";
     		subHead="invalid city entry";
  
     		
     		//client state validation 
-    		String Valid = cbState.getValue(); 
+    		String validState = cbState.getValue(); 
     		
     		//client zip code validation
     		head="Client Zip";
@@ -411,6 +408,7 @@ public class ClientsPage {
 		
 		return vbadd;
 	}
+
 	/**
 	 * updateClient()
 	 * The function will update the database and refresh the client view
@@ -613,16 +611,6 @@ public class ClientsPage {
 		});
 		return vbDel; 
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 
