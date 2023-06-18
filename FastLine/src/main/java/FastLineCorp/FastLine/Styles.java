@@ -23,6 +23,8 @@ public class Styles {
             + "-fx-border-radius: 5; " + "fx-border-radius: 5";
     String clientScroll ="-fx-background-color: white; -fx-border-color: black";
     String bacgroundWHITE ="-fx-background-color: white";
+    String bacgroundBLACK ="-fx-background-color: black";
+    String BgroundBW ="-fx-background-color: black";
 	
 	//HONEYDEW
 	//MEDIUMAQUAMARINE

@@ -68,6 +68,10 @@ public class ControlCorp extends Application{
 	
 	//Classes
 	HomePage homepage = new HomePage(bPane);
+	ClientsPage clientsp = new ClientsPage(bPane);
+	FlightsPage flightp = new FlightsPage(bPane);
+	PilotPage pilot = new PilotPage(bPane);
+	
 	
 	/**
 	 * This section will be the main page GUI. There will be buttons on this page to access the other pages
@@ -84,9 +88,10 @@ public class ControlCorp extends Application{
    bPane.setBottom(bottomSection());
    
    //Buttons that users will be able to click on to navigate to that other pages
-   btonhomepage.setOnAction(e ->{
-	   bPane.setCenter(homepage.getPane());
-   });
+   btonhomepage.setOnAction(e ->{bPane.setCenter(homepage.getPane()); });
+   btonclients.setOnAction(e->{bPane.setCenter(clientsp.getPane());});
+   btonflights.setOnAction(e->{bPane.setCenter(flightp.getPane());});
+   btonpilot.setOnAction(e->{bPane.setCenter(pilot.getPane());});
 	  
   primaryStage.setTitle("FastLine Corp");
  // primaryStage.setScen()

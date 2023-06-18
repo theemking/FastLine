@@ -123,9 +123,9 @@ public class HomePage {
 		VBox.setMargin(btonflights, new Insets(0,0,0,20));
 		btonflights.setMinSize(250, 150);
 		vboxcm.getChildren().addAll(fltext,btonflights, getAirPlane());
-		/*
-		 * btonflights.setOnAction(e ->{bPane.setCenter(flightspage.getPane()); });
-		 */
+	
+		btonflights.setOnAction(e ->{bPane.setCenter(flightp.getPane()); });
+	
 		return vboxcm;
 	}
 	/**
@@ -151,8 +151,10 @@ public class HomePage {
 		btonpilot.setMinSize(250, 150);
 		btoncontact.setMinSize(250, 150);
 		vboxcr.getChildren().addAll(aptext,btonpilot,contactText,btoncontact);
+		 
+		btonpilot.setOnAction(e ->{bPane.setCenter(pilotp.getPane()) ;});
+		
 		/*
-		 * btonpilot.setOnAction(e ->{bPane.setCenter(pilotp.getPane()) ;});
 		 * btoncontact.setOnAction(e ->{bPane.setCenter(contactp.getPane()) ;});
 		 */
 		return vboxcr;
