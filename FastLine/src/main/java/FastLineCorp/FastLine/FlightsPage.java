@@ -43,17 +43,17 @@ import javafx.scene.text.Text;
 //Begin Subclass FlightsPage
 public class FlightsPage {
 	
-	//TextArea for the view -  Pierre 
+	//TextArea for the view
 	static TextArea texReaOne = new TextArea();
     
-	// Client address labels - Pierre
+	// Client address labels 
 	static Label lbstartairport;
 	static Label lbendairport;
 	static Label lbflightstarttime;
 	static Label lbflightendtime;
 	static Label lbShipmentEndDate;
 
-	//Text field -  Pierre
+	//Text field 
 	static TextField txstartairport;
 	static TextField txendairport;
 	static TextField txflightstarttime;

@@ -36,6 +36,7 @@ public class HomePage {
 	PilotPage pilotp = new PilotPage(bPane);
 	AirPlanePage airplanep = new AirPlanePage(bPane);
 	ContactPage contactp = new ContactPage(bPane);
+	
 	//BorderPane constructore
 	HomePage(BorderPane homepage){
 		bPane =homepage;
@@ -92,17 +93,15 @@ public class HomePage {
 		Button btonshipment=new Button("SHIPMENT");
 		btonclients.setFont(Font.font("Time New Roman", FontWeight.BOLD, FontPosture.REGULAR, 30));
 		btonshipment.setFont(Font.font("Time New Roman", FontWeight.BOLD, FontPosture.REGULAR, 30));
-		btonclients.setStyle(homestyle.hpcenterBton);
+		btonclients.setStyle(homestyle.hpcenterBton);// + controlstyle.transparentBtonbox
 		btonshipment.setStyle(homestyle.hpcenterBton);
 		btonclients.setMinSize(250, 150);
 		btonshipment.setMinSize(250, 150);
 		vboxclb.getChildren().addAll(citext,btonclients,shiptext,btonshipment);
 	
 		btonclients.setOnAction(e ->{bPane.setCenter(clientsp.getPane()); });
-	
-/*
- * btonshipment.setOnAction(e ->{bPane.setCenter(ship.getPane()); });
- */
+		btonshipment.setOnAction(e ->{bPane.setCenter(shipmentp.getPane()); });
+
 		
 		return vboxclb;
 	}
@@ -152,11 +151,10 @@ public class HomePage {
 		btoncontact.setMinSize(250, 150);
 		vboxcr.getChildren().addAll(aptext,btonpilot,contactText,btoncontact);
 		 
-		btonpilot.setOnAction(e ->{bPane.setCenter(pilotp.getPane()) ;});
-		
-		/*
-		 * btoncontact.setOnAction(e ->{bPane.setCenter(contactp.getPane()) ;});
-		 */
+		 btonpilot.setOnAction(e ->{bPane.setCenter(pilotp.getPane()) ;});
+			
+		 btoncontact.setOnAction(e ->{bPane.setCenter(contactp.getPane()) ;});
+	
 		return vboxcr;
 	}
 	/**
@@ -175,9 +173,9 @@ public class HomePage {
 		VBox.setMargin(apbton, new Insets(0,0,0,20));
 		apbton.setMinSize(250, 150);
 		vboxap.getChildren().addAll(aptext, apbton);
-		/*
-		 * apbton.setOnAction(e ->{bPane.setCenter(airplanep.getPane()); });
-		 */
+		
+		 apbton.setOnAction(e ->{bPane.setCenter(airplanep.getPane()); });
+
 		return vboxap;
 	}
 	

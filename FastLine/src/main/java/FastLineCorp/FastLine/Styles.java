@@ -8,9 +8,11 @@ package FastLineCorp.FastLine;
  * @Description: This class contains the styles that will be pulled by different GUI pages in the program 
  * 
  */
+
 public class Styles {
 	String button ="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
-	//String redbton="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
+	String buttonNAV ="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
+	String redbton="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
 	String redExit="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
 	String btonbox ="-fx-background-color: MINTCREAM; -fx-border-color: none";
 	String hpcenterBton="-fx-background-color: MINTCREAM; -fx-border-color: gray; -fx-text-fill: DARKSLATEGREY";
@@ -25,7 +27,9 @@ public class Styles {
     String bacgroundWHITE ="-fx-background-color: white";
     String bacgroundBLACK ="-fx-background-color: black";
     String BgroundBW ="-fx-background-color: black";
+    String transparentBtonbox ="-fx-background-color: transparent";
 	
+    
 	//HONEYDEW
 	//MEDIUMAQUAMARINE
 	//MINTCREAM

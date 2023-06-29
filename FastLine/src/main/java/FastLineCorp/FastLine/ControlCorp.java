@@ -9,32 +9,23 @@ package FastLineCorp.FastLine;
  */
 
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-
+import javafx.scene.Parent; 
 import java.util.Arrays;
-
+import javafx.fxml.FXMLLoader; 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -43,7 +34,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class ControlCorp extends Application{
 	//declaring border
@@ -57,7 +47,6 @@ public class ControlCorp extends Application{
 	static Button btonpilot = new Button("PILOT");
 	static Button btonshipment = new Button("SHIPMENT");
 	static Button btonairplane = new Button("AIRPLANE");
-	static Button btonmodel = new Button ("MODEL");
 	static Button btoncontact = new Button("CONTACT");
 	static Button btonexit = new Button ("EXIT");
 	
@@ -65,12 +54,16 @@ public class ControlCorp extends Application{
 	
 	//Styles for the control page
 	Styles controlstyle = new Styles();
+	//StyleCSS styleCSS = new StyleCSS();
 	
 	//Classes
 	HomePage homepage = new HomePage(bPane);
 	ClientsPage clientsp = new ClientsPage(bPane);
 	FlightsPage flightp = new FlightsPage(bPane);
 	PilotPage pilot = new PilotPage(bPane);
+	ShipmentPage shipmentp = new ShipmentPage(bPane);
+	AirPlanePage airplanep = new AirPlanePage(bPane);
+	ContactPage contactp = new ContactPage(bPane);
 	
 	
 	/**
@@ -88,15 +81,24 @@ public class ControlCorp extends Application{
    bPane.setBottom(bottomSection());
    
    //Buttons that users will be able to click on to navigate to that other pages
+  // btonhomepage.set
    btonhomepage.setOnAction(e ->{bPane.setCenter(homepage.getPane()); });
    btonclients.setOnAction(e->{bPane.setCenter(clientsp.getPane());});
    btonflights.setOnAction(e->{bPane.setCenter(flightp.getPane());});
    btonpilot.setOnAction(e->{bPane.setCenter(pilot.getPane());});
+   btonshipment.setOnAction(e->{bPane.setCenter(shipmentp.getPane());});
+   btonairplane.setOnAction(e->{bPane.setCenter(airplanep.getPane());});
+   btoncontact.setOnAction(e->{bPane.setCenter(contactp.getPane());});
+   btonexit.setOnAction(e->{Platform.exit();});
 	  
   primaryStage.setTitle("FastLine Corp");
  // primaryStage.setScen()
   System.out.println("This is the control page");
   Scene scene = new Scene(bPane, 1000, 700);
+  //This code causes the app to not run
+  scene.getStylesheets().add(getClass().getResource("StyleCSS.css").toExternalForm());
+  String cssFile = this.getClass().getResource("StyleCSS.css").toExternalForm();
+  scene.getStylesheets().add(cssFile);
   primaryStage.setScene(scene);
   primaryStage.show();
   }
@@ -137,8 +139,8 @@ public class ControlCorp extends Application{
 	  hboxnv.setAlignment(Pos.CENTER);
 	  //Adding color, height and fonts to all buttons.
 	  Arrays.asList(btonhomepage,btonclients,btonflights,btonpilot,btonshipment,
-			  btonairplane,btonmodel,btoncontact).stream().map((btonColor)->{
-				  btonColor.setStyle(controlstyle.button);
+			  btonairplane,btoncontact).stream().map((btonColor)->{
+				  btonColor.setStyle(controlstyle.buttonNAV);
 				  return btonColor;				  
 			  }).map((btonColor)->{
 				  btonColor.setMinHeight(30);
@@ -147,19 +149,18 @@ public class ControlCorp extends Application{
 				  btonColor.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
 			  });
 	  //Setting up exit button differently because of different functions
-	  btonexit.setStyle(controlstyle.button);
+	  btonexit.setStyle(controlstyle.buttonNAV);
 	  btonexit.setMinHeight(30);
 	  btonexit.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	  hboxnv.getChildren().addAll(btonhomepage,btonclients,btonflights,btonpilot,btonshipment,
-			  btonairplane,btonmodel,btoncontact, btonexit);
-	  
+			  btonairplane,btoncontact, btonexit);
 	  return hboxnv;
 	  
   }
   /**
    * bottomSection
    * This section contain the following information at the bottom of the page
-   * Copyright © 2020 · All Rights Reserved
+   * Copyright © 2023 · All Rights Reserved
    * Program name
    * Author name
    */

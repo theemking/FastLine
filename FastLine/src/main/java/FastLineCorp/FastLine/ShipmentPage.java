@@ -64,8 +64,8 @@ public class ShipmentPage {
      *
      * @param bp
      */
-    ShipmentPage(BorderPane bp) {
-        bPane = bp;
+    ShipmentPage(BorderPane shipmentp) {
+        bPane = shipmentp;
     }
 
     /**

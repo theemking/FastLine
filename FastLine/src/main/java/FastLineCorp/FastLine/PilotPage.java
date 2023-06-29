@@ -39,7 +39,7 @@ import javafx.scene.text.Text;
 //Begin Subclass PilotPage
 public class PilotPage {
 
-	//TextArea for the view - By Pierre
+	//TextArea for the view
 	static TextArea texReaOne = new TextArea();
 
 	//labels
