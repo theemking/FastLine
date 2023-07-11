@@ -48,6 +48,7 @@ import java.util.regex.Pattern;
  * @Description: This page will be the main GUI control page. All other pages will be linked to this page
  * 
  * Amazon DB
+ * fastlinedb.cmxwsxmzozis.us-east-1.rds.amazonaws.com
  * Account: fastlinecorp
  * database name: fastlineDB
  * user name: fastadmin
@@ -128,7 +129,7 @@ public class ContactPage {
         titleBox.setSpacing(10);
         Text title = new Text("Contact Us");
         Text instruct = new Text("Please see below for ways to get in "
-                + "touch with Champlain Air Freight:");
+                + "touch with FastLine Corp:");
         //style text
         title.setFill(Color.DARKBLUE);
         title.setStrokeWidth(2);

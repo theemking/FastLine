@@ -90,17 +90,37 @@ public class ControlCorp extends Application{
    btonairplane.setOnAction(e->{bPane.setCenter(airplanep.getPane());});
    btoncontact.setOnAction(e->{bPane.setCenter(contactp.getPane());});
    btonexit.setOnAction(e->{Platform.exit();});
+   
+   //setting up the login page to logon to the program
+   LoginPage login = new LoginPage();
+   
 	  
   primaryStage.setTitle("FastLine Corp");
- // primaryStage.setScen()
-  System.out.println("This is the control page");
-  Scene scene = new Scene(bPane, 1000, 700);
-  //This code causes the app to not run
-  scene.getStylesheets().add(getClass().getResource("StyleCSS.css").toExternalForm());
-  String cssFile = this.getClass().getResource("StyleCSS.css").toExternalForm();
-  scene.getStylesheets().add(cssFile);
-  primaryStage.setScene(scene);
+  primaryStage.setScene(login.loginStage());
   primaryStage.show();
+  
+  System.out.println("This is the control page");
+  //Scene scene = new Scene(bPane, 1000, 700);
+  //This code causes the app to not run
+  //scene.getStylesheets().add(getClass().getResource("StyleCSS.css").toExternalForm());
+ // String cssFile = this.getClass().getResource("StyleCSS.css").toExternalForm();
+  //scene.getStylesheets().add(cssFile);
+  //primaryStage.setScene(scene);
+  primaryStage.show();
+  
+   /**
+    * This button will call from the login page to activate the action button to switch the scene in order
+    * for the login page to be shown.
+    */
+  login.buttonLog().setOnAction(e->{
+	  login.getUserName(); login.getPassword();{
+		  System.out.println("Loading the Login Page");
+		  Scene scen =new Scene(bPane, 1000, 700);
+		  primaryStage.setScene(scen);
+		  //LoginPage.tfUsername.requestFocus();
+	  }
+  });
+   
   }
   /**
    * topNavigation
