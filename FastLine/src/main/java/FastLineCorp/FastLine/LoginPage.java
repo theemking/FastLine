@@ -1,7 +1,8 @@
 package FastLineCorp.FastLine;
 
 import java.util.Arrays;
-
+import java.sql.*;
+//import FastLineCorp.FastLine.Database.User
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -59,6 +60,7 @@ public class LoginPage {
     // @return 
 	public VBox getPane() {
 		VBox vlogin = new VBox();
+		vlogin.setAlignment(Pos.CENTER);
 		vlogin.getChildren().addAll(login());
         return vlogin;
 	}
@@ -70,64 +72,134 @@ public class LoginPage {
 	protected BorderPane login() {
 		BorderPane loginBPane = new BorderPane();
 
-		VBox titleBox = new VBox();
-        titleBox.setAlignment(Pos.CENTER);
-        titleBox.setSpacing(10);
-        Text title = new Text("Login");
-        Text instruct = new Text("Please Enter Your Login Credentials Below:");
-        //style text
-        title.setFill(Color.DARKBLUE);
-        title.setStrokeWidth(2);
-        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 25));
-
-        instruct.setFill(Color.BLUE);
-        instruct.setStrokeWidth(2);
-        instruct.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 20));
-        //add titles to titlebox. 
-        titleBox.getChildren().addAll(title, instruct);
-
-      //add input values into a gridpane
-    	GridPane grid = new GridPane(); 
-    	grid.setAlignment(Pos.CENTER);
-    	grid.setHgap(10);
-    	grid.setVgap(4);
-    	grid.add(lbUsername, 0, 0);
-    	grid.add(lbPassword, 0, 1);    	
-    	grid.add(tfUsername, 1, 0);
-    	grid.add(pfPassword, 1, 1);
-
-        //create button HBox:
-        HBox buttonBox = new HBox();
-        buttonBox.setAlignment(Pos.CENTER);
-        buttonBox.setPadding(new Insets(20,0,0,0));
-        buttonBox.setSpacing(20);
-
-      //style buttons
-        Arrays.asList(btnLogin, btnExit).forEach((b) -> {
-            b.setStyle(loginstyle.button);
-            b.setMinHeight(30);
-            b.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
-        });
-        //Exit button style
-        btnExit.setStyle(loginstyle.redbton);
-        btnExit.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
-        btnExit.setMinHeight(0);
-
-        //add buttons to button HBox
-        buttonBox.getChildren().addAll(btnLogin, btnExit);
-
         //add title, center, and buttons to clients pane:
-        loginBPane.setTop(titleBox);
-        loginBPane.setCenter(grid); //call a method to show db of clients  
-        loginBPane.setBottom(buttonBox);
+        loginBPane.setTop(topNavigation());
+        loginBPane.setCenter(centerSection()); //call a method to show db of clients  
+        loginBPane.setBottom(bottomSection());
+
+		return loginBPane;
+	}
+	  /**
+	   * topNavigation
+	   * This section below with display the a navigation bar that shows the buttons and names for different pages.
+	   * 
+	   * @return
+	   * 
+	   */
+	  private VBox topNavigation() {
+		  VBox vboxt = new VBox();
+		  vboxt.setAlignment(Pos.CENTER);
+		  vboxt.setMinHeight(100);
+		  vboxt.setStyle("-fx-background-color: DARKSEAGREEN");
+		  vboxt.setPadding(new Insets(20,0,0,0));
+		  Text headertex = new Text("FASTLINE CORP");
+		  headertex.setFill(Color.GREEN);
+		  headertex.setStrokeWidth(2);
+		  headertex.setFont(Font.font("Times New Roman", FontWeight.BOLD,
+				  FontPosture.REGULAR, 30));
+		  vboxt.getChildren().addAll(headertex);
+		//  vboxt.getChildren().add(bottomSection());
+		  
+		  return vboxt;
+	  }
+	  /**
+	   * This function adds the center section of the login page
+	   * @return
+	   */
+	  private VBox centerSection() {
+		  VBox vboxc = new VBox();
+		 // vboxc.setSpacing(20);
+		  vboxc.setMinHeight(210);
+		  vboxc.setAlignment(Pos.CENTER);
+	        Text title = new Text("Login");
+	        Text instruct = new Text("Please Enter Your Login Credentials Below:");
+	        //style text
+	        title.setFill(Color.DARKBLUE);
+	        title.setStrokeWidth(2);
+	        title.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 25));
+	        
+			VBox titleBox = new VBox();
+	        titleBox.setAlignment(Pos.CENTER);
+	        titleBox.setSpacing(10);
+	       
+
+	        //add titles to titlebox. 
+	       
+	        instruct.setFill(Color.BLUE);
+	        instruct.setStrokeWidth(2);
+	        
+	        instruct.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 20));
+	      //add input values into a gridpane   
+	    	GridPane gPane = new GridPane(); 
+	    	gPane.setAlignment(Pos.CENTER);
+	    	gPane.setMinSize(700, 100);
+	    	gPane.setHgap(10);
+	    	gPane.setVgap(4);
+	    	gPane.add(lbUsername, 0, 0);
+	    	gPane.add(lbPassword, 0, 1);    	
+	    	gPane.add(tfUsername, 1, 0);
+	    	gPane.add(pfPassword, 1, 1);
+		  
+	        titleBox.getChildren().addAll(title, instruct);
+	        vboxc.getChildren().addAll(titleBox,gPane,loginExit());
+	             
+		  return vboxc;
+	  }
+	  /**
+	   * This function adds the login and exit button to the login page
+	   * @btnLogin
+	   * @btnExit
+	   * @return
+	   */
+	  private HBox loginExit() {
+		  HBox hboln = new HBox();
+		  hboln.setSpacing(40);
+		  hboln.setAlignment(Pos.CENTER);
+	      //style buttons
+	        Arrays.asList(btnLogin, btnExit).forEach((b) -> {
+	            b.setStyle(loginstyle.button);
+	            b.setMinHeight(30);
+	            b.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
+	        });
 
             btnExit.setOnAction(e -> {
         	Platform.exit(); 
         });
+	        //Exit button style
+	        btnExit.setStyle(loginstyle.redbton);
+	        btnExit.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 14));
+	        btnExit.setMinHeight(0);
+	        hboln.getChildren().addAll(btnLogin, btnExit);	
+	        
+		  return hboln;
+	  }
+	
+	  /**
+	   * bottomSection
+	   * This section contain the following information at the bottom of the page
+	   * Copyright © 2023 · All Rights Reserved
+	   * Program name
+	   * Author name
+	   */
+	  private VBox bottomSection() {
+		  VBox vboxb = new VBox();
+		  vboxb.setAlignment(Pos.CENTER);
+		  vboxb.setMinSize(1000, 150);
+		  vboxb.setStyle("-fx-background-color: TEAL");
+		  Text toptext = new Text("Copyright © 2023 · All Rights Reserved: " + "FastLine Corp");
+		  toptext.setFill(Color.WHITE);
+		  Text btomtext = new Text("Designed by: Dony Pierre");
+		  toptext.setFont(Font.font("Times New Roman", FontWeight.NORMAL, FontPosture.REGULAR, 15));
+		  btomtext.setFont(Font.font("Times New Roman", FontWeight.NORMAL,FontPosture.REGULAR, 15));
+		  btomtext.setFont(Font.font("Times New Roman", FontWeight.NORMAL,FontPosture.REGULAR, 15));
+		  btomtext.setFill(Color.WHITE);
+		  vboxb.setAlignment(Pos.CENTER);
+		  VBox.setMargin(toptext, new Insets(0,0,20,0));
+		  vboxb.getChildren().addAll(toptext, btomtext);	  
+		  return vboxb;
+	  }
 
-		return loginBPane;
-	}
-
+	
 	/**
 	 * returns a boolean if the user successfully logs in
 	 * @return
@@ -141,7 +213,7 @@ public class LoginPage {
 	 * @return
 	 */
 	public Scene loginStage() {
-		Scene logScene = new Scene(getPane(), 700, 400); 
+		Scene logScene = new Scene(getPane(), 700, 460); 
 		return logScene; 
 	}
 	
