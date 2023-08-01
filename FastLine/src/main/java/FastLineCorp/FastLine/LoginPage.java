@@ -3,6 +3,7 @@ package FastLineCorp.FastLine;
 import java.util.Arrays;
 import java.sql.*;
 //import FastLineCorp.FastLine.Database.User
+import FastLineCorp.FastLine.Styles;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -110,6 +111,7 @@ public class LoginPage {
 		  VBox vboxc = new VBox();
 		 // vboxc.setSpacing(20);
 		  vboxc.setMinHeight(210);
+		  vboxc.setStyle(loginstyle.bacgroundWHITE);
 		  vboxc.setAlignment(Pos.CENTER);
 	        Text title = new Text("Login");
 	        Text instruct = new Text("Please Enter Your Login Credentials Below:");
