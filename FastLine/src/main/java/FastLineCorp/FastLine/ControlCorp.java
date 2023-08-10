@@ -7,7 +7,8 @@ package FastLineCorp.FastLine;
  * @Description: This page will be the main GUI control page. All other pages will be linked to this page
  * 
  */
-
+import Database.DBConnection;
+import Database.Client.DBViewAllClient;
 import javafx.stage.Stage;
 import javafx.scene.Parent; 
 import java.util.Arrays;
@@ -34,6 +35,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import java.io.IOException;
 
 public class ControlCorp extends Application{
 	//declaring border
@@ -65,6 +67,9 @@ public class ControlCorp extends Application{
 	AirPlanePage airplanep = new AirPlanePage(bPane);
 	ContactPage contactp = new ContactPage(bPane);
 	
+	//declaring database clases
+	DBConnection connect = new DBConnection();
+	DBViewAllClient viewAllClient = new DBViewAllClient();
 	
 	/**
 	 * This section will be the main page GUI. There will be buttons on this page to access the other pages

@@ -1,5 +1,7 @@
 package FastLineCorp.FastLine;
 
+import Database.Aircraft.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.collections.FXCollections;
@@ -202,6 +204,8 @@ public class AirPlanePage {
 	 * @return
 	 */
 	private ScrollPane getTextAreaOne() {
+	//	DBViewAllAircraft viewAllPlane = new DBViewAllAircraft();
+		
 		ScrollPane box = new ScrollPane(); 
 		box.setStyle("-fx-border-color: black");
 		box.setFitToWidth(true);

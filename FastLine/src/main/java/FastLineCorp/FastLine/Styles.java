@@ -12,7 +12,7 @@ package FastLineCorp.FastLine;
 public class Styles {
 	String button ="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
 	String buttonNAV ="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
-	String redbton="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
+	String redbton="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: red";
 	String redExit="-fx-background-color: MINTCREAM; -fx-border-color: none; -fx-text-fill: black";
 	String btonbox ="-fx-background-color: MINTCREAM; -fx-border-color: none";
 	String hpcenterBton="-fx-background-color: MINTCREAM; -fx-border-color: gray; -fx-text-fill: DARKSLATEGREY";
