@@ -126,8 +126,6 @@ public class ClientsPage {
         instruct.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 20));
         //add titles to titlebox. 
         titleBox.getChildren().addAll(title, instruct);
-
-        
         
         //create button HBox:
         HBox buttonBox = new HBox();
@@ -284,7 +282,7 @@ public class ClientsPage {
     HBox selection = new HBox(); 
     selection.setSpacing(5); 
     selection.setAlignment(Pos.CENTER);
-    ComboBox clientSelect = new ComboBox(FXCollections.observableArrayList(all.getName())); 
+	ComboBox<String> clientSelect = new ComboBox<String>(FXCollections.observableArrayList(all.getName())); 
     clientSelect.setVisibleRowCount(5); 
     Button clientSearch = new Button("Search"); 
     selection.getChildren().addAll(clientSelect, clientSearch); 
@@ -386,6 +384,7 @@ public class ClientsPage {
 		Label lblCity = new Label("City: "); 
 		Label lblState = new Label("State: "); 
 		Label lblZip = new Label("Zip Code: "); 
+		
 		//style labels
 		Arrays.asList(lblName, lblType, lblPhone, lblAdd1, lblAdd2, lblCity, lblState, lblZip).stream().map((b)->{
 			b.setStyle(clientstyle.btonbox); 
@@ -394,12 +393,12 @@ public class ClientsPage {
 				
 		//entry fields
 		TextField txtName = new TextField(); 
-		ComboBox<String> cbType = new ComboBox(FXCollections.observableArrayList(dbtype.getClientType())); //combobox with type names 
+		ComboBox<String> cbType = new ComboBox<String>(FXCollections.observableArrayList(dbtype.getClientType())); //combobox with type names 
 		TextField txtPhone = new TextField(); 
 		TextField txtAdd1 = new TextField(); 
 		TextField txtAdd2 = new TextField(); 
 		TextField txtCity = new TextField(); 
-		ComboBox<String> cbState = new ComboBox();
+		ComboBox<String> cbState = new ComboBox<String>();
     	cbState.getItems().addAll("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
 				"IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
 				"NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT",
@@ -558,7 +557,7 @@ public class ClientsPage {
 		DBViewSelectedClientTypeByName selectClientType = new DBViewSelectedClientTypeByName();
 		
 		//call the get client id from viewAll 
-		ComboBox<Integer> cbClientID = new ComboBox(FXCollections.observableArrayList(viewAll.getID()));
+		ComboBox<Integer> cbClientID = new ComboBox<Integer>(FXCollections.observableArrayList(viewAll.getID()));
 		Button btSelectClient = new Button("Select Client"); 
 		
 		
@@ -585,12 +584,12 @@ public class ClientsPage {
 		//entry fields
 		
 		TextField txtName = new TextField(); 	
-		ComboBox<String> cbType = new ComboBox(FXCollections.observableArrayList(viewType.getClientType())); //combobox with type names 
+		ComboBox<String> cbType = new ComboBox<String>(FXCollections.observableArrayList(viewType.getClientType())); //combobox with type names 
 		TextField txtPhone = new TextField(); 
 		TextField txtAdd1 = new TextField(); 
 		TextField txtAdd2 = new TextField(); 
 		TextField txtCity = new TextField(); 
-		ComboBox<String> cbState = new ComboBox();
+		ComboBox<String> cbState = new ComboBox<String>();
     	cbState.getItems().addAll("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
 				"IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
 				"NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT",
@@ -785,7 +784,7 @@ public class ClientsPage {
 		Text title = new Text("Delete a Client"); 
 		Text instructions = new Text("Select a client, then click Enter"); 
 		
-		ComboBox<String> cbClients = new ComboBox(FXCollections.observableArrayList(view.getName())); 
+		ComboBox<String> cbClients = new ComboBox<String>(FXCollections.observableArrayList(view.getName())); 
 		GridPane gpane = new GridPane(); 
 		gpane.setHgap(11);
     	gpane.setVgap(5);

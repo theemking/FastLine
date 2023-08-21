@@ -49,7 +49,7 @@ public DBViewAllClient() {
 
 public void viewAll() {
 	try {
-		String method = "{call fastlinedb.dbo.View_All_Client(?,?,?,?,?,?,?,?,?,?)}"; 
+		String method = "{call fastline.dbo.View_All_Client(?,?,?,?,?,?,?,?,?,?)}"; 
 		callable = connect.prepareCall(method); 
 		
 		//execute the query
@@ -79,7 +79,7 @@ public void viewAll() {
 			Clientzip.add(rs.getString(9));   
 			ClientaddressID.add(rs.getInt(10)); 
 		}
-		
+	
 	}catch (SQLException ex) {
 		Logger.getLogger(DBViewAllClient.class.getName()).log(Level.SEVERE, null, ex);
 	} catch(Exception e) {

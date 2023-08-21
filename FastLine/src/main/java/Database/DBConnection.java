@@ -20,28 +20,30 @@ KMS key ID
  C:/Users/botone/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.8.701.20230209-1606/jars/maven-slf4j-provider-3.8.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
  */
 
-import org.apache.log4j.*;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.sql.*;
 
 public class DBConnection {
-/**	final String DRIVER = "com.sql.jdbc.Driver";
-	final static String URL="jdbc:mysql://fastlinedb.cmxwsxmzozis.us-east-1.rds.amazonaws.com";
-	final static String USER="fastadmin";
-	final static String PASSWORD="fastproject10";
-	protected Connection connect;
-	protected Statement statement;
-**/	
+	
+	  final String DRIVER = "com.sql.jdbc.Driver"; 
+	  final static String URL="jdbc:sqlserver://fastline.cmxwsxmzozis.us-east-1.rds.amazonaws.com";
+	  final static String USER="fastadmin"; 
+	  final static String PASSWORD="fastproject10"; 
+	  protected Connection connect; 
+	  protected Statement statement;
+	 
+
 
 	//For local database connection
-	final String DRIVER = "com.sql.jdbc.Driver";
-	final static String URL="jdbc:mysql://localhost:3306/fastline";
-	final static String USER="root";
-	final static String PASSWORD="fastproject10";
-	protected Connection connect;
-	protected Statement statement;
+	
+	/*
+	 * final String DRIVER = "com.sql.jdbc.Driver"; final static String
+	 * URL="jdbc:microsoft:sqlserver://localhost:1433/fastline"; final static String
+	 * USER="root"; final static String PASSWORD="fastproject10"; protected
+	 * Connection connect; protected Statement statement;
+	 */
 
 	//Default constructor for connecting the database
 	public DBConnection() {
