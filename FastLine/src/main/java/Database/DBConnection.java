@@ -26,7 +26,7 @@ import java.util.logging.Level;
 import java.sql.*;
 
 public class DBConnection {
-	
+
 	  final String DRIVER = "com.sql.jdbc.Driver"; 
 	  final static String URL="jdbc:sqlserver://fastline.cmxwsxmzozis.us-east-1.rds.amazonaws.com";
 	  final static String USER="fastadmin"; 
@@ -37,13 +37,15 @@ public class DBConnection {
 
 
 	//For local database connection
+/**	
 	
-	/*
-	 * final String DRIVER = "com.sql.jdbc.Driver"; final static String
-	 * URL="jdbc:microsoft:sqlserver://localhost:1433/fastline"; final static String
-	 * USER="root"; final static String PASSWORD="fastproject10"; protected
-	 * Connection connect; protected Statement statement;
-	 */
+	 final String DRIVER = "com.sql.jdbc.Driver"; 
+	 final static String URL="jdbc:sqlserver://localhost:1433/fastline"; 
+	 final static String USER="root"; 
+	 final static String PASSWORD=""; 
+	 protected Connection connect; 
+	 protected Statement statement;
+**/	 
 
 	//Default constructor for connecting the database
 	public DBConnection() {

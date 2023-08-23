@@ -6,7 +6,6 @@ package Database.Client;
  * @Class: DBAddClient
  * @Description: This page will be used to connect to the database and add new Clients.
  *  All other pages will be linked to this page
- * 
  */
 //Imports:
 import Database.DBConnection; 

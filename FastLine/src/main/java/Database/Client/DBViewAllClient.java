@@ -9,10 +9,11 @@ package Database.Client;
  * on the client page. All other pages will be linked to this page
  * 
  */
-import Database.DBConnection;
-import Database.Client.DBViewAllClient;
+
 
 //imports
+import Database.DBConnection;
+import Database.Client.DBViewAllClient;
 import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -40,7 +41,7 @@ private ArrayList<Integer> ClientaddressID = new ArrayList<>();
 public DBViewAllClient() {
 	try {
 		statement = connect.createStatement();
-		viewAll(); // call the viewAll function. 
+	//	viewAll(); // call the viewAll function. 
 			
 	} catch(SQLException ex) {
 		System.out.println("Database connection failed DBViewAllClient");
