@@ -1,4 +1,9 @@
 # FastLine
+The program is ready to view. Click on link below.
+https://drive.google.com/file/d/1FAvqpIPb0vHkaVCd6Z9ONG5kgXziEcYT/view?usp=drive_link
+The architecture of the program
+https://drive.google.com/file/d/1hA6c8qaHzBFyDtt_W_fdUmyH7-R9VIZA/view?usp=drive_link
+
 Fastline Corp will be a desktop-only platform. The user interface will be built using JavaFX. The user will first be greeted with a logon page, which asks for a username and password. 
 ![image](https://github.com/theemking/FastLine/assets/61077487/80106afb-a212-4016-89bc-00f9f6ad14c8)
 
